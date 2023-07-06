@@ -1,0 +1,21 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/test
+    username: test
+    password: tjdrud123!
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+      #show_sql: true
+      format_sql: true
+    defer-datasource-initialization: true
+server:
+  error:
+    include-message: always
+    #include-binding-errors: always 바인딩 에러 포함
+logging.level:
+  org.hibernate.SQL: debug
+  org.hibernate.type: info
