@@ -2,6 +2,7 @@ package org.study.domain;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 public class Post {
@@ -18,4 +19,7 @@ public class Post {
     private String memberId;
 
     private LocalDateTime regDate;
+
+    @OneToMany(mappedBy = "post")
+    private List<Comment> commentList;
 }
