@@ -29,9 +29,9 @@ public class SwaggerConfig {
 
     private ApiInfo apiInfo(){
         return new ApiInfoBuilder()
-                .title("Lezhin API swagger")
-                .description("레진엔터테인먼트 API 테스트")
-                //.contact(new Contact("mile", "milenote.tistory.com", "skn@futurenuri.com"))
+                .title("Silverlog API swagger")
+                .description("Silverlog API 테스트")
+                //.contact(new Contact("eun", "githib.com/eeun05", "eeun95@gmail.com"))
                 .version("1.0")
                 .build();
     }
