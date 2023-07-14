@@ -2,8 +2,9 @@ package org.study.api.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.study.api.exception.MemberDuplicatedException;
 import org.study.domain.Member;
-import org.study.dto.MemberJoinRequest;
+import org.study.dto.request.MemberJoinRequest;
 import org.study.repository.MemberRepository;
 
 @Service
@@ -14,6 +15,7 @@ public class MemberServiceImpl implements MemberService {
 
     @Override
     public Member join(MemberJoinRequest request) {
-        return null;
+        Member member = memberRepository.findByMemberId(request.getMemberId()).orElseThrow(() -> new MemberDuplicatedException());
+        return member;
     }
 }

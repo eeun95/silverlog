@@ -9,9 +9,8 @@ import org.study.domain.common.ErrorCode;
 public class ExControllerAdvice {
 
     @ExceptionHandler(MemberNotFound.class)
-    public CommonResponse WrongFormatException(MemberNotFound e) {
+    public CommonResponse MemberNotFoundException(MemberNotFound e) {
         return new CommonResponse(ErrorCode.MEMBER_NOT_FOUND);
     }
-
 
 }

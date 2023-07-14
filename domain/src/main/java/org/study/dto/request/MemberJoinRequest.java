@@ -1,4 +1,4 @@
-package org.study.dto;
+package org.study.dto.request;
 
 import lombok.Data;
 
@@ -6,6 +6,8 @@ import lombok.Data;
 public class MemberJoinRequest {
     private String name;
 
-    private String id;
+    private String memberId;
+
+    private String password;
 
 }
