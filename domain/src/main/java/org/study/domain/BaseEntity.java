@@ -1,21 +1,22 @@
 package org.study.domain;
 
-import javax.persistence.Entity;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+import javax.persistence.EntityListeners;
+import javax.persistence.MappedSuperclass;
 import java.time.LocalDateTime;
 
-@Entity
-public class BaseEntity{
+@MappedSuperclass
+@EntityListeners(AuditingEntityListener.class)
+public abstract class BaseEntity {
+    private LocalDateTime createdAt;
 
-    private LocalDateTime createDate;
+    private LocalDateTime modifideAt;
 
-    private LocalDateTime modifyDate;
-
-    private LocalDateTime deleteDate;
+    private LocalDateTime deletedAt;
 
     private String createdBy;
 
-    private String modifyBy;
+    private String modifiedBy;
 
-    private String deleteBy;
-
+    private String deletedBy;
 }
