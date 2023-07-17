@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
-public class Comment {
+public class Comment extends BaseEntity{
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
@@ -13,5 +13,7 @@ public class Comment {
     private Post post;
 
     private String comment;
+
+    private String memberId;
 
 }
