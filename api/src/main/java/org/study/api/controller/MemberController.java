@@ -20,7 +20,7 @@ public class MemberController {
 
     @PostMapping("join")
     public CommonResponse join(MemberJoinRequest request) {
-        Member member = memberService.join(request);
+        Member member = memberService.join(request.toEntity());
         MemberJoinResponse response = new MemberJoinResponse(member);
         return new CommonResponse(ResultCode.SUCCESS, response);
     }

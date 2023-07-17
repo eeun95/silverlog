@@ -14,8 +14,9 @@ public class MemberServiceImpl implements MemberService {
     private final MemberRepository memberRepository;
 
     @Override
-    public Member join(MemberJoinRequest request) {
-        Member member = memberRepository.findByMemberId(request.getMemberId()).orElseThrow(() -> new MemberDuplicatedException());
-        return member;
+    public Member join(Member member) {
+        Member findMember = memberRepository.findByMemberId(member.getMemberId()).orElseThrow(() -> new MemberDuplicatedException());
+        Member saveMember = memberRepository.save(member);
+        return saveMember;
     }
 }

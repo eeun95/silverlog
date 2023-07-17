@@ -1,6 +1,7 @@
 package org.study.dto.request;
 
 import lombok.Data;
+import org.study.domain.Member;
 
 @Data
 public class MemberJoinRequest {
@@ -10,4 +11,11 @@ public class MemberJoinRequest {
 
     private String password;
 
+    public Member toEntity() {
+        return Member.builder()
+                .name(name)
+                .memberId(memberId)
+                .password(password)
+                .build();
+    }
 }

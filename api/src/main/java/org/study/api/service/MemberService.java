@@ -4,5 +4,5 @@ import org.study.domain.Member;
 import org.study.dto.request.MemberJoinRequest;
 
 public interface MemberService {
-    Member join(MemberJoinRequest request);
+    Member join(Member member);
 }
