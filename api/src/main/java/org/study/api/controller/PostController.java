@@ -10,6 +10,7 @@ import org.study.domain.Post;
 import org.study.domain.common.CommonResponse;
 import org.study.domain.common.ResultCode;
 import org.study.dto.request.PostWriteRequest;
+import org.study.dto.response.PostResponse;
 
 @RestController
 @RequiredArgsConstructor
@@ -21,13 +22,17 @@ public class PostController {
     @PostMapping("write")
     public CommonResponse write(PostWriteRequest request) {
         Post post = request.toEntity();
-        postService.write(post);
-        return new CommonResponse(ResultCode.SUCCESS);
+        Post savePost = postService.write(post);
+        PostResponse response = PostResponse.toResponse(savePost);
+        return new CommonResponse(ResultCode.SUCCESS, response);
     }
 
     @PostMapping("update")
-    public CommonResponse update() {
-        return new CommonResponse(ResultCode.SUCCESS);
+    public CommonResponse update(PostWriteRequest request) {
+        Post post = request.toEntity();
+        Post updatePost = postService.update(post);
+        PostResponse response = PostResponse.toResponse(updatePost);
+        return new CommonResponse(ResultCode.SUCCESS, response);
     }
 
     @DeleteMapping("{id}")

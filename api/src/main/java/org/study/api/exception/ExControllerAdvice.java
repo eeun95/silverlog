@@ -8,9 +8,14 @@ import org.study.domain.common.ErrorCode;
 @RestControllerAdvice
 public class ExControllerAdvice {
 
-    @ExceptionHandler(MemberNotFound.class)
-    public CommonResponse MemberNotFoundException(MemberNotFound e) {
+    @ExceptionHandler(MemberNotFoundException.class)
+    public CommonResponse MemberNotFoundException(MemberNotFoundException e) {
         return new CommonResponse(ErrorCode.MEMBER_NOT_FOUND);
+    }
+
+    @ExceptionHandler(PostNotFoundException.class)
+    public CommonResponse PostNotFoundException(PostNotFoundException e) {
+        return new CommonResponse(ErrorCode.POST_NOT_FOUND);
     }
 
 }

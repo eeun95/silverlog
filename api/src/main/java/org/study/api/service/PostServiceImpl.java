@@ -2,6 +2,7 @@ package org.study.api.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.study.api.exception.PostNotFoundException;
 import org.study.domain.Post;
 import org.study.dto.request.PostWriteRequest;
 import org.study.repository.PostRepository;
@@ -21,7 +22,9 @@ public class PostServiceImpl implements PostService{
 
     @Override
     public Post update(Post post) {
-        return null;
+        Post findPost = postRepository.findByIdAndDeleteAtIsNull(post.getId()).orElseThrow(()-> new PostNotFoundException());
+        findPost.updatePost(post.getTitle(), post.getContents(), post.getCategory());
+        return findPost;
     }
 
     @Override

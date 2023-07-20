@@ -1,12 +1,14 @@
 package org.study.domain;
 
 import lombok.Builder;
+import lombok.Getter;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
+@Getter
 public class Post extends BaseEntity{
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -29,6 +31,12 @@ public class Post extends BaseEntity{
 
     @Builder
     public Post(String title, String contents, Category category, Member member) {
+        this.title = title;
+        this.contents = contents;
+        this.category = category;
+    }
+
+    public void updatePost(String title, String contents, Category category) {
         this.title = title;
         this.contents = contents;
         this.category = category;
