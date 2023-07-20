@@ -28,7 +28,8 @@ public class PostServiceImpl implements PostService{
     }
 
     @Override
-    public Long delete(Long id) {
-        return null;
+    public void delete(Long id) {
+        Post findPost = postRepository.findByIdAndDeleteAtIsNull(id).orElseThrow(()-> new PostNotFoundException());
+        postRepository.delete(findPost);
     }
 }

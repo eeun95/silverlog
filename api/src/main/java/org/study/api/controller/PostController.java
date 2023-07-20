@@ -1,10 +1,7 @@
 package org.study.api.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.study.api.service.PostService;
 import org.study.domain.Post;
 import org.study.domain.common.CommonResponse;
@@ -36,8 +33,8 @@ public class PostController {
     }
 
     @DeleteMapping("{id}")
-    public CommonResponse delete() {
-
+    public CommonResponse delete(@PathVariable("id") Long id) {
+        postService.delete(id);
         return new CommonResponse(ResultCode.SUCCESS);
     }
 }
