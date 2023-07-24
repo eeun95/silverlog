@@ -9,12 +9,23 @@ import org.study.domain.common.ResultCode;
 import org.study.dto.request.PostWriteRequest;
 import org.study.dto.response.PostResponse;
 
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/post")
 public class PostController {
 
     private final PostService postService;
+
+    @GetMapping("")
+    public CommonResponse search() {
+        List<Post> search = postService.search();
+        List<PostResponse> response = search.stream().map(p -> PostResponse.toResponse(p)).collect(Collectors.toList());
+        return new CommonResponse(ResultCode.SUCCESS, response);
+    }
 
     @PostMapping("write")
     public CommonResponse write(PostWriteRequest request) {

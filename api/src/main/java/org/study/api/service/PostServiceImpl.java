@@ -7,6 +7,7 @@ import org.study.domain.Post;
 import org.study.dto.request.PostWriteRequest;
 import org.study.repository.PostRepository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -14,6 +15,13 @@ import java.util.Optional;
 public class PostServiceImpl implements PostService{
 
     private final PostRepository postRepository;
+
+    @Override
+    public List<Post> search() {
+        List<Post> postList = postRepository.findAllByDeleteAtIsNull();
+        return postList;
+    }
+
     @Override
     public Post write(Post post) {
         Post savePost = postRepository.save(post);
