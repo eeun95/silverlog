@@ -11,7 +11,6 @@ import org.study.dto.response.PostResponse;
 
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 @RestController
 @RequiredArgsConstructor
@@ -21,9 +20,16 @@ public class PostController {
     private final PostService postService;
 
     @GetMapping("")
-    public CommonResponse search() {
-        List<Post> search = postService.search();
-        List<PostResponse> response = search.stream().map(p -> PostResponse.toResponse(p)).collect(Collectors.toList());
+    public CommonResponse list() {
+        List<Post> list = postService.list();
+        List<PostResponse> response = list.stream().map(p -> PostResponse.toResponse(p)).collect(Collectors.toList());
+        return new CommonResponse(ResultCode.SUCCESS, response);
+    }
+
+    @GetMapping("{id}")
+    public CommonResponse search(@PathVariable("id") Long id) {
+        Post findPost = postService.search(id);
+        PostResponse response = PostResponse.toResponse(findPost);
         return new CommonResponse(ResultCode.SUCCESS, response);
     }
 

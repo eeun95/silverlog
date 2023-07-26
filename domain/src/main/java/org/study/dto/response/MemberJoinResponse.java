@@ -14,6 +14,6 @@ public class MemberJoinResponse {
     public MemberJoinResponse(Member member) {
         this.id = member.getId();
         this.name = member.getName();
-        this.memberId = member.getMemberID();
+        this.memberId = member.getMemberId();
     }
 }

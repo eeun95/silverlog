@@ -5,7 +5,9 @@ plugins {
 dependencies {
     api 'org.springframework.boot:spring-boot-starter-data-jpa'
     api 'org.springframework.boot:spring-boot-starter-web'
-//
+
+    runtimeOnly 'com.mysql:mysql-connector-j'
+
 //
 //    // QueryDSL 의존성 추가 (스프링 부트 3.0 +)
 //    implementation 'com.querydsl:querydsl-jpa:5.0.0:jakarta'

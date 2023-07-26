@@ -5,7 +5,9 @@ import org.study.domain.Post;
 import java.util.List;
 
 public interface PostService {
-    List<Post> search();
+    List<Post> list();
+
+    Post search(Long id);
 
     Post write(Post post);
 

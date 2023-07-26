@@ -17,9 +17,15 @@ public class PostServiceImpl implements PostService{
     private final PostRepository postRepository;
 
     @Override
-    public List<Post> search() {
+    public List<Post> list() {
         List<Post> postList = postRepository.findAllByDeleteAtIsNull();
         return postList;
+    }
+
+    @Override
+    public Post search(Long id) {
+        Post findPost = postRepository.findByIdAndDeleteAtIsNull(id).orElseThrow(()-> new PostNotFoundException());
+        return findPost;
     }
 
     @Override
