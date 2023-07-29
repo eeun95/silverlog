@@ -7,7 +7,7 @@ import java.util.List;
 public interface PostService {
     List<Post> list();
 
-    Post search(Long id);
+    Post search(String id);
 
     Post write(Post post);
 

@@ -26,9 +26,9 @@ public class PostController {
         return new CommonResponse(ResultCode.SUCCESS, response);
     }
 
-    @GetMapping("{id}")
-    public CommonResponse search(@PathVariable("id") Long id) {
-        Post findPost = postService.search(id);
+    @GetMapping("{search}")
+    public CommonResponse search(@PathVariable("search") String search) {
+        Post findPost = postService.search(search);
         PostResponse response = PostResponse.toResponse(findPost);
         return new CommonResponse(ResultCode.SUCCESS, response);
     }
