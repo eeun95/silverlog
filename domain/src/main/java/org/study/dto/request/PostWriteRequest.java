@@ -6,6 +6,8 @@ import org.study.domain.Post;
 
 @Data
 public class PostWriteRequest {
+    private Long postId;
+
     private String title;
 
     private String contents;
@@ -16,6 +18,7 @@ public class PostWriteRequest {
 
     public Post toEntity() {
         return Post.builder()
+                .id(postId)
                 .title(title)
                 .contents(contents)
                 .category(category)

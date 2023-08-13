@@ -17,5 +17,9 @@ public class ExControllerAdvice {
     public CommonResponse PostNotFoundException(PostNotFoundException e) {
         return new CommonResponse(ErrorCode.POST_NOT_FOUND);
     }
+    @ExceptionHandler(CommentNotFoundException.class)
+    public CommonResponse CommentNotFoundException(CommentNotFoundException e) {
+        return new CommonResponse(ErrorCode.COMMENT_NOT_FOUND);
+    }
 
 }

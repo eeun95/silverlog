@@ -12,6 +12,7 @@ import org.study.domain.Post;
 import org.study.domain.common.CommonResponse;
 import org.study.domain.common.ResultCode;
 import org.study.dto.request.CommentRequest;
+import org.study.dto.request.CommentUpdateRequest;
 import org.study.dto.response.CommentResponse;
 
 @RestController
@@ -33,13 +34,15 @@ public class CommentController {
                 .build();
         Comment regist = commentService.regist(comment);
         CommentResponse response = CommentResponse.toResponse(regist);
-        return new CommonResponse(ResultCode.SUCCESS);
+        return new CommonResponse(ResultCode.SUCCESS, response);
     }
 
     @PostMapping("update")
-    public CommonResponse update() {
-        Comment update = commentService.update();
-        return new CommonResponse(ResultCode.SUCCESS);
+    public CommonResponse update(CommentUpdateRequest request) {
+        Comment comment = request.toEntity();
+        Comment update = commentService.update(comment);
+        CommentResponse response = CommentResponse.toResponse(update);
+        return new CommonResponse(ResultCode.SUCCESS, response);
     }
 
     @PostMapping("delete")

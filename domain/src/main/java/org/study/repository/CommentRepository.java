@@ -5,6 +5,10 @@ import org.springframework.stereotype.Repository;
 import org.study.domain.Comment;
 import org.study.domain.Post;
 
+import java.util.Optional;
+
 @Repository
 public interface CommentRepository extends JpaRepository<Comment, Long> {
+    Optional<Comment> findByIdAndDeletedAtIsNull(Long id);
+
 }

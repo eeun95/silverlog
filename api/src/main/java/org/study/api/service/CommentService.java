@@ -6,7 +6,9 @@ public interface CommentService {
 
     Comment regist(Comment comment);
 
-    Comment update();
+    Comment findOne(Long commentId);
+
+    Comment update(Comment comment);
 
     void delete();
 }
