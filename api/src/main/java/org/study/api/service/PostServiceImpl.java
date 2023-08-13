@@ -23,6 +23,12 @@ public class PostServiceImpl implements PostService{
     }
 
     @Override
+    public Post findOne(Long id) {
+        Post findPost = postRepository.findById(id).orElseThrow(() -> new PostNotFoundException());
+        return findPost;
+    }
+
+    @Override
     public Post search(String search) {
         Post findPost = postRepository.findPostBySearchText(search).orElseThrow(()->new PostNotFoundException());
         return findPost;

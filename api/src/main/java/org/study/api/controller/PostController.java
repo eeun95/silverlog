@@ -26,8 +26,8 @@ public class PostController {
         return new CommonResponse(ResultCode.SUCCESS, response);
     }
 
-    @GetMapping("{search}")
-    public CommonResponse search(@PathVariable("search") String search) {
+    @GetMapping("{search}/{searchContent}")
+    public CommonResponse search(@PathVariable("search") String search, @PathVariable("searchContent") String searchContent) {
         Post findPost = postService.search(search);
         PostResponse response = PostResponse.toResponse(findPost);
         return new CommonResponse(ResultCode.SUCCESS, response);
