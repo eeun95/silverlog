@@ -1,9 +1,7 @@
 package org.study.api.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.study.api.service.CommentService;
 import org.study.api.service.PostService;
 import org.study.domain.Comment;
@@ -45,9 +43,9 @@ public class CommentController {
         return new CommonResponse(ResultCode.SUCCESS, response);
     }
 
-    @PostMapping("delete")
-    public CommonResponse delete() {
-        commentService.delete();
+    @DeleteMapping("{commentId}")
+    public CommonResponse delete(@PathVariable("commentId") Long commentId) {
+        commentService.delete(commentId);
         return new CommonResponse(ResultCode.SUCCESS);
     }
 }
