@@ -1,6 +1,6 @@
 package org.study.api.service;
 
-import org.study.domain.Post;
+import org.study.entity.Post;
 
 import java.util.List;
 

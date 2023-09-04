@@ -2,8 +2,8 @@ package org.study.api.exception;
 
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-import org.study.domain.common.CommonResponse;
-import org.study.domain.common.ErrorCode;
+import org.study.entity.common.CommonResponse;
+import org.study.entity.common.ErrorCode;
 
 @RestControllerAdvice
 public class ExControllerAdvice {

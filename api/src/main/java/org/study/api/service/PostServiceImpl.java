@@ -3,12 +3,10 @@ package org.study.api.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.study.api.exception.PostNotFoundException;
-import org.study.domain.Post;
-import org.study.dto.request.PostWriteRequest;
+import org.study.entity.Post;
 import org.study.repository.PostRepository;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor

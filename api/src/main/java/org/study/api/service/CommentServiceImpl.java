@@ -3,10 +3,8 @@ package org.study.api.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.study.api.exception.CommentNotFoundException;
-import org.study.domain.Comment;
+import org.study.entity.Comment;
 import org.study.repository.CommentRepository;
-
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor

@@ -1,6 +1,6 @@
 package org.study.repository;
 
-import org.study.domain.Post;
+import org.study.entity.Post;
 
 import java.util.Optional;
 

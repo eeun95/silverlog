@@ -1,7 +1,7 @@
 package org.study.dto.request;
 
 import lombok.Data;
-import org.study.domain.Member;
+import org.study.entity.Member;
 
 @Data
 public class MemberJoinRequest {

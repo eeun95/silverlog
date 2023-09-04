@@ -1,6 +1,6 @@
 package org.study.api.service;
 
-import org.study.domain.Comment;
+import org.study.entity.Comment;
 
 public interface CommentService {
 

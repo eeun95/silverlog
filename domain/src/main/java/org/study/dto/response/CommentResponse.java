@@ -1,7 +1,7 @@
 package org.study.dto.response;
 
 import lombok.Data;
-import org.study.domain.Comment;
+import org.study.entity.Comment;
 
 @Data
 public class CommentResponse {

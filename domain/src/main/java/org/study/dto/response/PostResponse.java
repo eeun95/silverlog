@@ -1,8 +1,8 @@
 package org.study.dto.response;
 
 import lombok.Data;
-import org.study.domain.Category;
-import org.study.domain.Post;
+import org.study.entity.Category;
+import org.study.entity.Post;
 
 @Data
 public class PostResponse {

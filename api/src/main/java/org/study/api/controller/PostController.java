@@ -3,9 +3,9 @@ package org.study.api.controller;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import org.study.api.service.PostService;
-import org.study.domain.Post;
-import org.study.domain.common.CommonResponse;
-import org.study.domain.common.ResultCode;
+import org.study.entity.Post;
+import org.study.entity.common.CommonResponse;
+import org.study.entity.common.ResultCode;
 import org.study.dto.request.PostWriteRequest;
 import org.study.dto.response.PostResponse;
 

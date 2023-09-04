@@ -1,4 +1,4 @@
-package org.study.domain;
+package org.study.entity;
 
 import lombok.Builder;
 import lombok.Getter;
